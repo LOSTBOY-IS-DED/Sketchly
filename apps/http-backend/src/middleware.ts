@@ -4,7 +4,7 @@ import { JWT_SECRET } from "./config.js";
 
 interface AuthRequest extends Request {
     userId?: string;
-  }
+}
 
 export function authMiddleware(req : AuthRequest , res : Response , next : NextFunction){
 

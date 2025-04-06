@@ -1,13 +1,16 @@
 import express from "express" ; 
 import JWT from "jsonwebtoken";
 import { JWT_SECRET } from "./config.js";
+import { authMiddleware } from "./middleware.js";
 
 const app = express();
 
 app.use(express.json());
 
 app.post("/signin" , (req , res) => {
-
+    res.json({
+        message : "signed in"
+    })
 })
 app.post("/signup" , (req , res) => {
     const userId = 123 ; 
@@ -15,8 +18,10 @@ app.post("/signup" , (req , res) => {
     res.json({ token });
     
 })
-app.post("/create-room" , (req , res) => {
-
+app.post("/create-room" , authMiddleware , (req , res) => {
+    res.json({
+        message : "created room"
+    })
 })
 
 
