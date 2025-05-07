@@ -46,6 +46,8 @@ app.post("/signup" , async (req , res) => {
             username : data.data.username ,
             password : data.data.password ,
             name : data.data.name ,
+            email: data.data.email,
+            photo : data.data.photo as string
         }
     })
     const userId = 123 ; 
